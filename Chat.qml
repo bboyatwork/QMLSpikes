@@ -1,7 +1,6 @@
 import QtQuick 2.11
 import QtQuick.Controls 2.2
 import QtQuick.Layouts 1.3
-import QtGraphicalEffects 1.0
 
 Page {
     id: root
@@ -104,29 +103,11 @@ Page {
                 Row {
                     id: messageRow
 
-                    Image {
+                    RoundedAvatar {
                         id: avatar
                         source: !sentByMe ? "qrc:/images/" + modelData.author.avatar : ""
                         width: 50
                         height: 50
-
-                        property bool rounded: true
-                        property bool adapt: true
-
-                        layer.enabled: rounded
-                        layer.effect: OpacityMask {
-                            maskSource: Item {
-                                width: avatar.width
-                                height: avatar.height
-                                Rectangle {
-                                    anchors.centerIn: parent
-                                    width: avatar.adapt ? avatar.width : Math.min(avatar.width, avatar.height)
-                                    height: avatar.adapt ? avatar.height : width
-                                    radius: Math.min(width, height)
-                                }
-                                }
-                            }
-
                     }
                     Rectangle {
                         width: Math.min(messageText.implicitWidth + 24, chatList.width - (!sentByMe ? avatar.width + messageRow.spacing : 0))
@@ -142,27 +123,11 @@ Page {
                             wrapMode: Label.Wrap
                         }
                     }
-                    Image {
+
+                    RoundedAvatar {
                         source: sentByMe ? "qrc:/images/" + modelData.author.avatar : ""
                         width: 50
                         height: 50
-
-                        property bool rounded: true
-                        property bool adapt: true
-
-                        layer.enabled: rounded
-                        layer.effect: OpacityMask {
-                            maskSource: Item {
-                                width: avatar.width
-                                height: avatar.height
-                                Rectangle {
-                                    anchors.centerIn: parent
-                                    width: avatar.adapt ? avatar.width : Math.min(avatar.width, avatar.height)
-                                    height: avatar.adapt ? avatar.height : width
-                                    radius: Math.min(width, height)
-                                }
-                                }
-                            }
                     }
                 }
                 Label {
