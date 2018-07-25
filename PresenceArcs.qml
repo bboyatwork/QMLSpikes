@@ -41,7 +41,7 @@ Item {
                        }
                    }
                }
-               Image {
+               RoundedAvatar {
                    id: avatarImage
                    x: parent.width / 2
                    y: parent.height / (arcs.count + 2) * (index + 1) + (parent.height / 2)
