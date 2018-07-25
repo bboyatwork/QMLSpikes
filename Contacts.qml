@@ -26,11 +26,10 @@ Page {
             height: avatar.implicitHeight
             leftPadding: avatar.implicitWidth + 32
             onClicked: contacts.StackView.view.push("qrc:/Chat.qml", { inConversationWith: modelData.name })
-            Image {
+            RoundedAvatar {
                 id: avatar
-                source: "qrc:/images/" + modelData.avatar
-                width: 100
                 height: 100
+                width: 100
             }
         }
     }
